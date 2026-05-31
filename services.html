@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | NextCare Medical Center</title>
+    <meta name="description" content="Learn about NextCare Medical Center – our vision, values, and dedicated team committed to providing high-quality healthcare in Accra, Ghana.">
+    <meta name="keywords" content="NextCare, medical center, Accra, healthcare, about, vision, values, Ghana">
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/stylesmain.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0a5c8a;
+            --primary-dark: #064670;
+            --primary-light: #e8f4fd;
+            --accent: #00b4a0;
+            --accent-light: #e0faf7;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            --border: #e9edf4;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar {
+            background: var(--gray-900);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .social-icon:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+            padding: 14px 0;
+            z-index: 1050;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+        }
+        .navbar-brand img {
+            height: 42px;
+            transition: var(--transition);
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--gray-800) !important;
+            padding: 10px 18px !important;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            letter-spacing: 0.1px;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary) !important;
+            background: var(--primary-light);
+        }
+        .nav-link.active {
+            font-weight: 600;
+        }
+        .btn-appointment {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff !important;
+            padding: 12px 26px !important;
+            border-radius: 30px !important;
+            font-weight: 600;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 6px 25px rgba(10, 92, 138, 0.3);
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        .btn-appointment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(10, 92, 138, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), #053550);
+            color: #fff !important;
+        }
+
+        /* ============ PAGE HERO ============ */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(160deg, #f0f7fc 0%, #e8f4fd 30%, #f8fafc 100%);
+            padding: 110px 0 70px;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 180, 160, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(10, 92, 138, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-hero .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero .breadcrumb {
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .page-hero .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .page-hero .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        .page-hero .breadcrumb .active {
+            color: var(--gray-500);
+        }
+        .page-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--gray-900);
+            letter-spacing: -1px;
+            line-height: 1.15;
+        }
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+        }
+
+        /* ============ SECTION STYLES ============ */
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-badge {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 7px 18px;
+            border-radius: 30px;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: var(--gray-900);
+            letter-spacing: -0.5px;
+        }
+
+        /* ============ ABOUT INTRO ============ */
+        .about-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+            display: block;
+        }
+        .about-image-wrapper .experience-badge {
+            position: absolute;
+            bottom: 24px;
+            right: -16px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .experience-badge .badge-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+        .experience-badge .badge-text {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-list li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-weight: 500;
+            color: var(--gray-800);
+        }
+        .check-list li i {
+            color: var(--accent);
+            margin-top: 4px;
+            font-size: 0.95rem;
+        }
+
+        /* ============ VISION CARD ============ */
+        .vision-card {
+            background: linear-gradient(135deg, var(--primary-dark), #053550);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 44px 36px;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: var(--shadow-lg);
+        }
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+            top: -80px;
+            right: -80px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .vision-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
+        }
+        .vision-card p {
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .vision-card .vision-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============ VALUES CARDS ============ */
+        .value-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 34px 26px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .value-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        .value-card:hover::after {
+            transform: scaleX(1);
+        }
+        .value-icon-wrap {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+        .value-icon-wrap.c1 { background: #e8f4fd; color: #0a5c8a; }
+        .value-icon-wrap.c2 { background: #e0faf7; color: #00b4a0; }
+        .value-icon-wrap.c3 { background: #fef3e2; color: #e8983e; }
+        .value-icon-wrap.c4 { background: #f0e6fa; color: #7c3aed; }
+        .value-icon-wrap.c5 { background: #fde8ec; color: #e53e6f; }
+        .value-card h5 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+        }
+        .value-card p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        /* ============ CTA BANNER ============ */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary-dark), #053550);
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .cta-banner h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+        .btn-cta-white {
+            background: #fff;
+            color: var(--primary-dark);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .btn-cta-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+            color: var(--primary-dark);
+            background: #f0f8ff;
+        }
+        .btn-cta-outline {
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: #fff;
+        }
+        .btn-cta-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .btn-cta-accent {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 28px rgba(0, 180, 160, 0.35);
+        }
+        .btn-cta-accent:hover {
+            background: #00c9b0;
+            transform: translateY(-3px);
+            color: #fff;
+            box-shadow: 0 14px 38px rgba(0, 180, 160, 0.45);
+        }
+
+        /* ============ STICKY CTA BAR ============ */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--border);
+            padding: 12px 0;
+            z-index: 1040;
+            display: none;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .sticky-cta-bar .btn-sticky {
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-sticky-call {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        .btn-sticky-call:hover {
+            background: #d0e8f5;
+            color: var(--primary-dark);
+        }
+        .btn-sticky-whatsapp {
+            background: #25D366;
+            color: #fff;
+        }
+        .btn-sticky-whatsapp:hover {
+            background: #20ba57;
+            color: #fff;
+        }
+        .btn-sticky-email {
+            background: var(--gray-100);
+            color: var(--gray-800);
+        }
+        .btn-sticky-email:hover {
+            background: var(--gray-200);
+            color: var(--gray-900);
+        }
+        @media (max-width: 991px) {
+            .sticky-cta-bar {
+                display: block;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 60px 0 20px;
+        }
+        .footer h5 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .footer-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 5px 0;
+            transition: var(--transition);
+            font-size: 0.88rem;
+        }
+        .footer-link i {
+            font-size: 0.7rem;
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+        .footer-link:hover {
+            color: #fff;
+            padding-left: 4px;
+        }
+        .footer-link:hover i {
+            color: var(--accent);
+        }
+        .footer-social {
+            display: inline-flex;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-social:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            color: #fff;
+        }
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-radius: 10px 0 0 10px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+        }
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .newsletter-input:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+            color: #fff;
+        }
+        .btn-newsletter {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 10px 10px 0;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.88rem;
+        }
+        .btn-newsletter:hover {
+            background: #00c9b0;
+        }
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+        .copyright a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ BACK TO TOP ============ */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            z-index: 1030;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-4px);
+            color: #fff;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 991px) {
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .vision-card {
+                margin-top: 20px;
+            }
+            .cta-banner {
+                padding: 36px 24px;
+                text-align: center;
+            }
+            .cta-banner h2 {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .page-hero {
+                padding: 90px 0 50px;
+            }
+            .page-hero h1 {
+                font-size: 1.8rem;
+            }
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== TOP BAR ==================== -->
+<div class="topbar text-white py-2 d-none d-lg-block">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex gap-4">
+                    <span><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i>No. 5, 2nd Close, Airport Residential Area, Accra</span>
+                    <span><i class="fas fa-phone-alt me-2" style="color: var(--accent);"></i>+233 244 355 678</span>
+                    <span><i class="fas fa-envelope me-2" style="color: var(--accent);"></i>info@nextcaregh.com</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-end">
+                <a href="https://wa.me/+233244355678" class="social-icon me-1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/nextcare-logo.png" alt="NextCare Medical Center">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fas fa-bars" style="color: var(--primary); font-size: 1.3rem;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="service/serv1.html" class="dropdown-item">General/Family Medicine</a></li>
+                        <li><a href="serv2.html" class="dropdown-item">Obstetrics/Gynaecology</a></li>
+                        <li><a href="serv3.html" class="dropdown-item">Paediatrics</a></li>
+                        <li><a href="serv6.html" class="dropdown-item">Internal Medicine</a></li>
+                        <li><a href="serv7.html" class="dropdown-item">Surgery</a></li>
+                        <li><a href="serv9.html" class="dropdown-item">Laboratory Services</a></li>
+                        <li><a href="serv8.html" class="dropdown-item">Pharmacy</a></li>
+                        <li><a href="serv5.html" class="dropdown-item">Ultrasound & Imaging</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="blogpost.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a href="appointment.html" class="btn-appointment">Book Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== PAGE HERO ==================== -->
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+            <h1>About <span class="highlight">NextCare</span><br>Medical Center</h1>
+            <p class="mt-3">Discover who we are, what drives us, and why thousands of families trust NextCare for their healthcare needs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ABOUT INTRO SECTION ==================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="800">
+                <span class="section-badge">Who We Are</span>
+                <h2 class="section-title mb-3">Dedicated to Your Health & Well-Being</h2>
+                <p class="mb-3" style="color: var(--gray-600); font-size: 1.05rem;">
+                    At <strong>NextCare Medical Center</strong>, we are dedicated to providing high-quality medical care in a warm and welcoming environment. 
+                    Our experienced team is committed to your well-being and aims to make your experience as comfortable as possible.
+                </p>
+                <p class="mb-4" style="color: var(--gray-600); font-size: 1.05rem;">
+                    Feel free to explore our range of medical services designed to meet your healthcare needs. 
+                    From routine check-ups to specialized treatments, we are here for you and your family – every step of the way.
+                </p>
+                <ul class="check-list mb-4">
+                    <li><i class="fas fa-check-circle"></i> Highly experienced, board-certified medical professionals</li>
+                    <li><i class="fas fa-check-circle"></i> Modern, fully-equipped facility in the heart of Accra</li>
+                    <li><i class="fas fa-check-circle"></i> Patient-centred approach with personalized care plans</li>
+                    <li><i class="fas fa-check-circle"></i> Warm, welcoming environment that promotes healing</li>
+                </ul>
+                <!-- Click-bait CTAs -->
+                <div class="d-flex flex-wrap gap-3 mt-3">
+                    <a href="tel:+233244355678" class="btn-cta btn-cta-white" style="border: 2px solid var(--primary); color: var(--primary-dark); background: #fff; box-shadow: var(--shadow-sm);">
+                        <i class="fas fa-phone-alt"></i> Call Us Now
+                    </a>
+                    <a href="https://wa.me/+233244355678?text=Hello%20NextCare%20Medical%20Center%2C%20I%20would%20like%20to%20learn%20more%20about%20your%20services." class="btn-cta btn-cta-accent" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <a href="mailto:info@nextcaregh.com?subject=Inquiry%20About%20NextCare%20Services" class="btn-cta btn-cta-outline" style="border: 2px solid var(--primary); color: var(--primary); background: transparent;">
+                        <i class="fas fa-envelope"></i> Email Us
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="800">
+                <div class="about-image-wrapper">
+                    <img src="img/team.jpg" alt="NextCare Medical Team" loading="lazy">
+                    <div class="experience-badge">
+                        <div class="badge-number">10+</div>
+                        <div class="badge-text">Years of<br>Excellence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== VISION SECTION ==================== -->
+<section style="background: var(--gray-50);" class="section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
+                <div class="vision-card">
+                    <div class="vision-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be the hospital of choice for the communities we serve and to be among the leading hospitals in the nation 
+                        in terms of patient outcomes, quality, education, and community service.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                <div class="vision-card" style="background: linear-gradient(135deg, #0a5c8a, #0a5078);">
+                    <div class="vision-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Promise</h3>
+                    <p>
+                        We promise to treat every patient with dignity, respect, and compassion. 
+                        Your health is our priority, and we strive to exceed your expectations at every visit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== OUR VALUES SECTION ==================== -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-badge">Our Core Values</span>
+            <h2 class="section-title">What Guides Everything We Do</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">These five principles are at the heart of every interaction, every decision, and every patient we serve.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="value-card">
+                    <div class="value-icon-wrap c1"><i class="fas fa-smile"></i></div>
+                    <h5>Patient Satisfaction</h5>
+                    <p>Respect for the patient and individualizing care to meet the needs of each patient at the time of service. Your comfort and trust matter most.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="value-card">
+                    <div class="value-icon-wrap c2"><i class="fas fa-shield-alt"></i></div>
+                    <h5>Quality & Safety</h5>
+                    <p>We uphold the highest standards of clinical quality and patient safety. Every procedure, every prescription, every interaction is held to rigorous benchmarks.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="value-card">
+                    <div class="value-icon-wrap c3"><i class="fas fa-heart"></i></div>
+                    <h5>Compassion</h5>
+                    <p>Providing a warm, welcoming environment that promotes healing – both physically and psychologically. We treat the person, not just the condition.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="value-card">
+                    <div class="value-icon-wrap c4"><i class="fas fa-users"></i></div>
+                    <h5>Teamwork</h5>
+                    <p>We value the contribution of each employee and encourage collaboration among all team members to achieve our shared mission and vision together.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="value-card">
+                    <div class="value-icon-wrap c5"><i class="fas fa-star"></i></div>
+                    <h5>Excellence</h5>
+                    <p>Delivering the highest quality service in a safe environment through the dedicated efforts of all team members. We never settle for less than the best.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="value-card" style="background: linear-gradient(160deg, #f8fafc, #e8f4fd); border: 2px dashed var(--primary-light);">
+                    <div class="value-icon-wrap" style="background: var(--primary-light); color: var(--primary-dark);">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h5>Community Commitment</h5>
+                    <p>Beyond our walls, we are devoted to improving health outcomes across the communities we serve through education, outreach, and accessible care.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CTA BANNER ==================== -->
+<div class="container" data-aos="zoom-in" data-aos-duration="700">
+    <div class="cta-banner mb-5">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2>Ready to Experience the NextCare Difference?</h2>
+                <p>Schedule your appointment today and let our dedicated team take care of you and your loved ones with compassion and expertise.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+                    <a href="tel:+233244355678" class="btn-cta btn-cta-white">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/+233244355678?text=Hello%20NextCare%2C%20I%20would%20like%20to%20book%20an%20appointment." class="btn-cta btn-cta-accent" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== STICKY CTA BAR (Mobile) ==================== -->
+<div class="sticky-cta-bar">
+    <div class="container">
+        <div class="d-flex justify-content-around align-items-center">
+            <a href="tel:+233244355678" class="btn-sticky btn-sticky-call">
+                <i class="fas fa-phone-alt"></i> Call
+            </a>
+            <a href="https://wa.me/+233244355678?text=Hello%20NextCare%2C%20I%20need%20more%20information." class="btn-sticky btn-sticky-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:info@nextcaregh.com?subject=Inquiry%20from%20Website" class="btn-sticky btn-sticky-email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer pt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="footer-brand">
+                    <img src="img/nextcare-logo-white.png" alt="NextCare Medical Center" style="height: 50px; margin-bottom: 1rem;">
+                    <p class="text-white-50">Delivering accessible, quality healthcare with integrity and innovation – right where you need it.</p>
+                    <form action="#" method="POST" class="w-100 mt-3">
+                        <div class="input-group">
+                            <input type="email" class="newsletter-input form-control" placeholder="Subscribe to newsletter" name="email" required>
+                            <button class="btn-newsletter" type="submit">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <h5>Get In Touch</h5>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i> No. 5, 2nd Close, Airport Residential Area, Accra</p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2" style="color: var(--accent);"></i> info@nextcaregh.com</p>
+                        <p class="mb-3"><i class="fas fa-phone me-2" style="color: var(--accent);"></i> +233 (0) 244 355 678</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <h5>Quick Links</h5>
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="service.html" class="footer-link"><i class="fas fa-chevron-right"></i> Our Services</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Meet The Team</a>
+                        <a href="blogpost.html" class="footer-link"><i class="fas fa-chevron-right"></i> Latest Blog</a>
+                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <h5>Main Services</h5>
+                        <a href="serv1.html" class="footer-link"><i class="fas fa-chevron-right"></i> General Medicine</a>
+                        <a href="serv2.html" class="footer-link"><i class="fas fa-chevron-right"></i> Obstetrics & Gynaecology</a>
+                        <a href="serv3.html" class="footer-link"><i class="fas fa-chevron-right"></i> Paediatrics</a>
+                        <a href="serv6.html" class="footer-link"><i class="fas fa-chevron-right"></i> Internal Medicine</a>
+                        <a href="serv7.html" class="footer-link"><i class="fas fa-chevron-right"></i> Surgery</a>
+                        <a href="serv9.html" class="footer-link"><i class="fas fa-chevron-right"></i> Laboratory & Imaging</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright mt-5 py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> <a href="#">NextCare Medical Center</a>. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll for back to top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
