@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Book Appointment | Oak Specialist Hospital</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Book appointments with specialist doctors at Oak Specialist Hospital, Kumasi" name="keywords">
+    <meta content="Schedule appointments with our expert specialists at Oak Specialist Hospital. Browse doctors by specialty and book your consultation online." name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #1E5FBB;
+            --primary-dark: #0D3B7A;
+            --primary-light: #E8F0FE;
+            --accent: #00B4D8;
+            --accent-light: #E0F7FA;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #0F172A;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-400: #94A3B8;
+            --gray-500: #64748B;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1E293B;
+            --gray-900: #0F172A;
+            --white: #FFFFFF;
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--gray-100); }
+        ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+        /* Topbar */
+        .topbar {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--dark) 100%);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .topbar .social-icon {
+            width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        .topbar .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 95, 187, 0.4);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--gray-100);
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+        .navbar-brand img {
+            height: 45px;
+            transition: var(--transition);
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--gray-700) !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.9rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+            background: var(--primary-light);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 60%;
+        }
+        .dropdown-menu {
+            border: none;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            padding: 0.5rem;
+            background: white;
+            animation: fadeInUp 0.3s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dropdown-item {
+            border-radius: var(--radius-sm);
+            padding: 0.6rem 1rem;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .dropdown-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .btn-appointment-nav {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(30, 95, 187, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-appointment-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 95, 187, 0.4);
+            color: white;
+        }
+        .btn-search {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--gray-100);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-600);
+            transition: var(--transition);
+        }
+        .btn-search:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 7rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-header .breadcrumb-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .page-header .breadcrumb-link:hover {
+            color: white;
+        }
+
+        /* Section Badge */
+        .section-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--gray-200);
+            color: var(--gray-600);
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            cursor: pointer;
+            margin: 0.3rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 95, 187, 0.3);
+        }
+
+        /* Doctor Card */
+        .doctor-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--gray-100);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+        .doctor-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #F0F7FF 100%);
+        }
+        .doctor-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .doctor-card:hover .doctor-image-wrapper img {
+            transform: scale(1.05);
+        }
+        .doctor-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--success);
+            color: white;
+            border-radius: 50px;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .doctor-status.available {
+            background: var(--success);
+        }
+        .doctor-status.busy {
+            background: var(--warning);
+        }
+        .doctor-status .pulse {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .doctor-info {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .doctor-specialty {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+        .doctor-name {
+            font-size: 1.3rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        .doctor-bio {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .doctor-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+        .doctor-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .doctor-meta i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+        .btn-book {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(30, 95, 187, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-book:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 95, 187, 0.4);
+            color: white;
+        }
+
+        /* Booking Modal */
+        .modal-content {
+            border: none;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem 2rem;
+        }
+        .modal-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .modal-body {
+            padding: 2rem;
+        }
+        .form-control, .form-select {
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1.2rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            background: var(--gray-50);
+            font-family: 'Inter', sans-serif;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(30, 95, 187, 0.1);
+            background: white;
+            outline: none;
+        }
+        .form-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            margin-bottom: 0.4rem;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.85rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(30, 95, 187, 0.3);
+            width: 100%;
+        }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(30, 95, 187, 0.45);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--gray-900) 0%, var(--dark) 100%);
+            color: var(--gray-300);
+        }
+        .footer-brand {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-2xl);
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .footer h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        .footer-link {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+        }
+        .footer-link:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .footer-link i {
+            color: var(--primary);
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+        .footer-link:hover i {
+            transform: translateX(3px);
+        }
+        .footer-social {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+        .footer-social:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 95, 187, 0.5);
+        }
+        .newsletter-input {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 50px 0 0 50px;
+            padding: 0.7rem 1.2rem;
+        }
+        .newsletter-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+        .newsletter-input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--primary);
+            box-shadow: none;
+            color: white;
+        }
+        .btn-newsletter {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .btn-newsletter:hover {
+            background: var(--accent);
+        }
+        .copyright {
+            background: rgba(0,0,0,0.3);
+            font-size: 0.85rem;
+        }
+        .copyright a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            color: white;
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+          .btn-appointment {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(30, 95, 187, 0.3);
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-appointment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 95, 187, 0.4);
+    color: white;
+  }
+
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 5rem 0 3rem;
+            }
+            .doctor-image-wrapper {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Topbar Start -->
+<div class="topbar text-white py-2 d-none d-lg-block">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex gap-4">
+                    <span><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i> No 1 -26 Nextcare Rd, Santasi-Anyinam</span>
+                    <span><i class="fas fa-phone-alt me-2" style="color: var(--accent);"></i>+233 599598366</span>
+                    <span><i class="fas fa-envelope me-2" style="color: var(--accent);"></i>info@nextcaregh.com</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-end">
+                <a href="https://wa.me/+233599598366" class="social-icon me-1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/nextcare-logo.jpg" alt="Nextcare Ghana" style="height: 60px; border-radius: var(--radius-2xl);">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fas fa-bars" style="color: var(--primary); font-size: 1.3rem;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item dropdown">
+                    <a href="services.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="service/serv1.html" class="dropdown-item">Dental Clinic</a></li>
+                        <li><a href="service/serv2.html" class="dropdown-item">Obstetrics/Gynaecology</a></li>
+                        <li><a href="service/serv3.html" class="dropdown-item">Paediatrics</a></li>
+                        <li><a href="service/serv6.html" class="dropdown-item">Internal Medicine</a></li>
+                        <li><a href="service/serv7.html" class="dropdown-item">Surgery</a></li>
+                        <li><a href="service/serv9.html" class="dropdown-item">Laboratory Services</a></li>
+                        <li><a href="service/serv8.html" class="dropdown-item">Pharmacy</a></li>
+                        <li><a href="service/serv5.html" class="dropdown-item">Ultrasound & Imaging</a></li>
+                        <li><a href="service/serv4.html" class="dropdown-item">IV Rejuvenation Therapy</a></li>
+                        <li><a href="service/serv10.html" class="dropdown-item">Fertility Clinic</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a href="appointment.html" class="btn-appointment">Book Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Navbar End -->
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-up" data-aos-duration="800">
+                <h1 class="display-4 text-white fw-bold mb-3">Book an Appointment</h1>
+                <p class="text-white mb-0" style="opacity: 0.9; font-size: 1.1rem;">Choose from our team of expert specialists and schedule your visit</p>
+                <nav aria-label="breadcrumb" class="mt-3">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                    <span class="text-white-50 mx-2">•</span>
+                    <span class="text-white fw-semibold">Book Appointment</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Search Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent text-white border-2 border-white py-3 px-4 rounded-pill-start" placeholder="Search doctors, services..." style="border-right: none;">
+                    <button class="btn text-white rounded-pill-end" style="background: var(--primary); border: 2px solid white; border-left: none; padding: 0 2rem;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Doctors Section Start -->
+<div class="container py-5 my-4">
+    <!-- Section Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Our Specialists</span>
+        <h2 class="display-5 fw-bold mb-3" style="color: var(--gray-900);">Meet Our Expert Doctors</h2>
+        <p class="text-muted mx-auto" style="max-width: 600px;">All our specialists are highly qualified and registered with the Ghana Medical and Dental Council.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" data-filter="all">All Specialists</button>
+        <button class="filter-btn" data-filter="general">General Medicine</button>
+        <button class="filter-btn" data-filter="obgyn">Obstetrics/Gynaecology</button>
+        <button class="filter-btn" data-filter="ivf">IVF Specialist</button>
+        <button class="filter-btn" data-filter="paediatrics">Paediatrics</button>
+        <button class="filter-btn" data-filter="internal">Internal Medicine</button>
+        <button class="filter-btn" data-filter="surgery">Surgery</button>
+    </div>
+
+    <!-- Doctors Grid -->
+    <div class="row g-4" id="doctorsGrid">
+        <!-- Doctor 1 - General Medicine -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="general" data-aos="fade-up" data-aos-delay="100">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-1.jpg" alt="Dr. Kwame Asante" onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">General & Family Medicine</div>
+                    <h4 class="doctor-name">Dr. Kwame Asante</h4>
+                    <p class="doctor-bio">Senior Family Medicine Specialist with over 15 years of experience in primary care and preventive medicine.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Mon-Sat</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.9</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Kwame Asante', 'General & Family Medicine')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 2 - Obstetrics/Gynaecology -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="obgyn" data-aos="fade-up" data-aos-delay="200">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-2.jpg" alt="Dr. Abena Owusu" onerror="this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Obstetrics & Gynaecology</div>
+                    <h4 class="doctor-name">Dr. Abena Owusu</h4>
+                    <p class="doctor-bio">Consultant Obstetrician and Gynaecologist specializing in high-risk pregnancies and minimally invasive surgery.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Mon-Fri</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.8</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Abena Owusu', 'Obstetrics & Gynaecology')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 3 - IVF -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="ivf" data-aos="fade-up" data-aos-delay="300">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-3.jpg" alt="Dr. Michael Addo" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status busy">
+                        <span class="pulse"></span> Limited Slots
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">In Vitro Fertilization</div>
+                    <h4 class="doctor-name">Dr. Michael Addo</h4>
+                    <p class="doctor-bio">Leading fertility specialist with extensive experience in IVF, ICSI, and reproductive endocrinology.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Tue-Thu</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.9</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Michael Addo', 'In Vitro Fertilization')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 4 - Paediatrics -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="paediatrics" data-aos="fade-up" data-aos-delay="400">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-4.jpg" alt="Dr. Naana Mensah" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Paediatrics</div>
+                    <h4 class="doctor-name">Dr. Naana Mensah</h4>
+                    <p class="doctor-bio">Consultant Paediatrician with expertise in neonatology, paediatric respiratory medicine, and child development.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Mon-Sat</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 5.0</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Naana Mensah', 'Paediatrics')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 5 - Internal Medicine -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="internal" data-aos="fade-up" data-aos-delay="500">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-5.jpg" alt="Dr. Emmanuel Kofi" onerror="this.src='https://images.unsplash.com/photo-1537368910025-700350fe46ac?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Internal Medicine</div>
+                    <h4 class="doctor-name">Dr. Emmanuel Kofi</h4>
+                    <p class="doctor-bio">Specialist in internal medicine with subspecialty training in cardiology and hypertension management.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Wed-Sat</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.7</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Emmanuel Kofi', 'Internal Medicine')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 6 - Surgery -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="surgery" data-aos="fade-up" data-aos-delay="600">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-6.jpg" alt="Dr. Yaw Boakye" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Surgery</div>
+                    <h4 class="doctor-name">Dr. Yaw Boakye</h4>
+                    <p class="doctor-bio">General and laparoscopic surgeon with expertise in minimally invasive procedures and orthopaedic surgery.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Mon-Thu</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.8</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Yaw Boakye', 'Surgery')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 7 - General Medicine -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="general" data-aos="fade-up" data-aos-delay="700">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-7.jpg" alt="Dr. Akosua Darko" onerror="this.src='https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">General & Family Medicine</div>
+                    <h4 class="doctor-name">Dr. Akosua Darko</h4>
+                    <p class="doctor-bio">Family physician with special interest in chronic disease management and geriatric care.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Tue-Sat</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.6</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Akosua Darko', 'General & Family Medicine')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 8 - Obstetrics/Gynaecology -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="obgyn" data-aos="fade-up" data-aos-delay="800">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-8.jpg" alt="Dr. Efua Asare" onerror="this.src='https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status available">
+                        <span class="pulse"></span> Available
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Obstetrics & Gynaecology</div>
+                    <h4 class="doctor-name">Dr. Efua Asare</h4>
+                    <p class="doctor-bio">Specialist in maternal-fetal medicine and gynaecological oncology with 12 years of experience.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Mon-Fri</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.9</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Efua Asare', 'Obstetrics & Gynaecology')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor 9 - Paediatrics -->
+        <div class="col-lg-4 col-md-6 doctor-item" data-category="paediatrics" data-aos="fade-up" data-aos-delay="900">
+            <div class="doctor-card">
+                <div class="doctor-image-wrapper">
+                    <img src="img/team-9.jpg" alt="Dr. Kojo Appiah" onerror="this.src='https://images.unsplash.com/photo-1591604021695-0c69b7c05981?w=400&h=400&fit=crop'; this.onerror=null;">
+                    <div class="doctor-status busy">
+                        <span class="pulse"></span> Limited Slots
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-specialty">Paediatrics</div>
+                    <h4 class="doctor-name">Dr. Kojo Appiah</h4>
+                    <p class="doctor-bio">Paediatric neurologist with expertise in epilepsy, developmental delays, and neonatal intensive care.</p>
+                    <div class="doctor-meta">
+                        <span><i class="fas fa-clock"></i> Wed-Sat</span>
+                        <span><i class="fas fa-star" style="color: var(--warning);"></i> 4.8</span>
+                    </div>
+                    <button class="btn-book" onclick="openBookingModal('Dr. Kojo Appiah', 'Paediatrics')">
+                        <i class="fas fa-calendar-check"></i> Book Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="text-center py-5 d-none" id="noResults">
+        <i class="fas fa-search mb-3" style="font-size: 3rem; color: var(--gray-300);"></i>
+        <h4 style="color: var(--gray-500);">No doctors found</h4>
+        <p class="text-muted">Try selecting a different specialty filter.</p>
+    </div>
+</div>
+<!-- Doctors Section End -->
+
+<!-- Booking Modal -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h4 class="modal-title text-white" id="bookingModalLabel">Book Appointment</h4>
+                    <p class="mb-0 text-white-50" id="selectedDoctorInfo" style="font-size: 0.9rem;"></p>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm" action="https://getform.io/f/cfe6b443-94b5-4d67-9ea5-def1031edbb6" method="POST">
+                    <input type="hidden" name="doctor" id="doctorName">
+                    <input type="hidden" name="specialty" id="doctorSpecialty">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-control" name="contact" placeholder="+233 XX XXX XXXX" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Preferred Date *</label>
+                            <input type="date" class="form-control" name="date" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Preferred Time *</label>
+                            <select class="form-select" name="time" required>
+                                <option value="" selected disabled>Select time</option>
+                                <option value="8am-9am">8:00 AM - 9:00 AM</option>
+                                <option value="9am-10am">9:00 AM - 10:00 AM</option>
+                                <option value="10am-11am">10:00 AM - 11:00 AM</option>
+                                <option value="11am-12pm">11:00 AM - 12:00 PM</option>
+                                <option value="12pm-1pm">12:00 PM - 1:00 PM</option>
+                                <option value="2pm-3pm">2:00 PM - 3:00 PM</option>
+                                <option value="3pm-4pm">3:00 PM - 4:00 PM</option>
+                                <option value="4pm-5pm">4:00 PM - 5:00 PM</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Appointment Type</label>
+                            <select class="form-select" name="appointment_type">
+                                <option value="in-person">In-Person Visit</option>
+                                <option value="video">Video Consultation</option>
+                                <option value="phone">Phone Consultation</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Reason for Visit</label>
+                            <textarea class="form-control" name="message" rows="3" placeholder="Briefly describe your condition or reason for appointment"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-check-circle me-2"></i>Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast-container">
+    <div class="toast align-items-center text-white bg-success border-0" id="successToast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <i class="fas fa-check-circle me-2"></i> Booking confirmed! We'll contact you shortly.
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Start -->
+<footer class="footer pt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="footer-brand">
+                    <img src="img/nextcare-logo.jpg" alt="Nextcare Ghana" style="height: 80px; margin-bottom: 1rem;">
+                    <p class="text-white-50">Delivering accessible, quality healthcare with integrity and innovation – right where you need it.</p>
+                    <form action="#" method="POST" class="w-100 mt-3">
+                        <div class="input-group">
+                            <input type="email" class="newsletter-input form-control" placeholder="Subscribe to newsletter" name="email" required>
+                            <button class="btn-newsletter" type="submit">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <h5>Get In Touch</h5>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i> 1-26 Nextcare Rd
+Santasi, Ashanti</p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2" style="color: var(--accent);"></i> info@nextcaregh.com</p>
+                        <p class="mb-3"><i class="fas fa-phone me-2" style="color: var(--accent);"></i> +233 599598366</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <h5>Quick Links</h5>
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="service/serv4.html" class="footer-link"><i class="fas fa-chevron-right"></i> Our Services</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Meet The Team</a>
+                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <h5>Main Services</h5>
+                        <a href="service/serv1.html" class="footer-link"><i class="fas fa-chevron-right"></i> Dental</a>
+                        <a href="service/serv2.html" class="footer-link"><i class="fas fa-chevron-right"></i> Obstetrics & Gynaecology</a>
+                        <a href="service/serv3.html" class="footer-link"><i class="fas fa-chevron-right"></i> Paediatrics</a>
+                        <a href="service/serv6.html" class="footer-link"><i class="fas fa-chevron-right"></i> Internal Medicine</a>
+                        <a href="service/serv7.html" class="footer-link"><i class="fas fa-chevron-right"></i> Surgery</a>
+                        <a href="service/serv9.html" class="footer-link"><i class="fas fa-chevron-right"></i> Laboratory & Imaging</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright mt-5 py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Nextcare Ghana</a>. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        const backToTop = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll for back to top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            const doctorItems = document.querySelectorAll('.doctor-item');
+            let visibleCount = 0;
+            
+            doctorItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                noResults.classList.add('d-none');
+            }
+        });
+    });
+
+    // Booking Modal
+    function openBookingModal(doctorName, specialty) {
+        document.getElementById('doctorName').value = doctorName;
+        document.getElementById('doctorSpecialty').value = specialty;
+        document.getElementById('bookingModalLabel').textContent = 'Book Appointment';
+        document.getElementById('selectedDoctorInfo').textContent = `with ${doctorName} - ${specialty}`;
+        
+        const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
+        bookingModal.show();
+    }
+
+    // Form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show success toast
+        const toast = new bootstrap.Toast(document.getElementById('successToast'));
+        toast.show();
+        
+        // Close modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+        modal.hide();
+        
+        // Reset form
+        this.reset();
+        
+        // Actually submit after short delay for UX
+        setTimeout(() => {
+            this.submit();
+        }, 1500);
+    });
+</script>
+</body>
+</html>
