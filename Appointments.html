@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | NextCare Medical Center</title>
+    <meta name="description" content="Book an appointment with NextCare Medical Center. View our specialist doctors and schedule your visit today.">
+    <meta name="keywords" content="appointment, NextCare, doctors, Kumasi, Accra, healthcare, book online">
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/stylesmain.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0a5c8a;
+            --primary-dark: #064670;
+            --primary-light: #e8f4fd;
+            --accent: #00b4a0;
+            --accent-light: #e0faf7;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --white: #ffffff;
+            --border: #e9edf4;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-700);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ TOP BAR ============ */
+        .topbar {
+            background: var(--gray-900);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .social-icon:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+            padding: 14px 0;
+            z-index: 1050;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+        }
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+        }
+        .navbar-brand img {
+            height: 42px;
+            transition: var(--transition);
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--gray-800) !important;
+            padding: 10px 18px !important;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            letter-spacing: 0.1px;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary) !important;
+            background: var(--primary-light);
+        }
+        .nav-link.active {
+            font-weight: 600;
+        }
+        .btn-appointment {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff !important;
+            padding: 12px 26px !important;
+            border-radius: 30px !important;
+            font-weight: 600;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 6px 25px rgba(10, 92, 138, 0.3);
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+        }
+        .btn-appointment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(10, 92, 138, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), #053550);
+            color: #fff !important;
+        }
+
+        /* ============ PAGE HERO ============ */
+        .page-hero {
+            position: relative;
+            background: linear-gradient(160deg, #f0f7fc 0%, #e8f4fd 30%, #f8fafc 100%);
+            padding: 110px 0 70px;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 180, 160, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .page-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: var(--gray-900);
+            letter-spacing: -1px;
+            line-height: 1.15;
+            position: relative;
+            z-index: 2;
+        }
+        .page-hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero .breadcrumb {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .page-hero .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .page-hero .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        .page-hero .breadcrumb .active {
+            color: var(--gray-500);
+        }
+
+        /* ============ DOCTOR CARDS ============ */
+        .doctor-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            text-align: center;
+        }
+        .doctor-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .doctor-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: linear-gradient(180deg, #e8f2f9, #d0e5f4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .doctor-img i {
+            font-size: 4rem;
+            color: rgba(10, 92, 138, 0.2);
+        }
+        .doctor-info {
+            padding: 20px 18px;
+        }
+        .doctor-info h5 {
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+        .doctor-info .specialty {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        .btn-view-credentials {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+        .btn-view-credentials:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-see-all {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-see-all:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-dark);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============ APPOINTMENT FORM ============ */
+        .appointment-form-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+        .form-control-custom {
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            padding: 13px 16px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--gray-50);
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+        .form-control-custom:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(10, 92, 138, 0.08);
+            background: #fff;
+            outline: none;
+        }
+        textarea.form-control-custom {
+            resize: vertical;
+            min-height: 120px;
+        }
+        select.form-control-custom {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 8.825L1.175 4 2.238 2.938 6 6.7 9.763 2.938 10.825 4z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+        .btn-submit-appointment {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            padding: 14px 34px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 28px rgba(10, 92, 138, 0.3);
+            letter-spacing: 0.2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+        }
+        .btn-submit-appointment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(10, 92, 138, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), #053550);
+            color: #fff;
+        }
+
+        /* ============ MODAL STYLES ============ */
+        .modal-content {
+            border-radius: var(--radius-lg);
+            border: none;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            border-bottom: none;
+            padding: 20px 24px;
+        }
+        .modal-header .btn-close {
+            filter: brightness(0) invert(1);
+        }
+        .modal-body {
+            padding: 24px;
+        }
+        .modal-doctor-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        .modal-credentials-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .modal-credentials-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+        .modal-credentials-list li:last-child {
+            border-bottom: none;
+        }
+        .modal-credentials-list li i {
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        /* ============ STICKY CTA BAR ============ */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--border);
+            padding: 12px 0;
+            z-index: 1040;
+            display: none;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .sticky-cta-bar .btn-sticky {
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .btn-sticky-call { background: var(--primary-light); color: var(--primary-dark); }
+        .btn-sticky-call:hover { background: #d0e8f5; color: var(--primary-dark); }
+        .btn-sticky-whatsapp { background: #25D366; color: #fff; }
+        .btn-sticky-whatsapp:hover { background: #20ba57; color: #fff; }
+        .btn-sticky-email { background: var(--gray-100); color: var(--gray-800); }
+        .btn-sticky-email:hover { background: var(--gray-200); color: var(--gray-900); }
+
+        @media (max-width: 991px) {
+            .sticky-cta-bar { display: block; }
+            body { padding-bottom: 70px; }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--gray-900);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 60px 0 20px;
+        }
+        .footer h5 { color: #fff; font-weight: 700; font-size: 1.05rem; margin-bottom: 20px; }
+        .footer-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 5px 0;
+            transition: var(--transition);
+            font-size: 0.88rem;
+        }
+        .footer-link i { font-size: 0.7rem; margin-right: 8px; }
+        .footer-link:hover { color: #fff; padding-left: 4px; }
+        .footer-social {
+            display: inline-flex;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            align-items: center; justify-content: center;
+            color: #fff; text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-social:hover { background: var(--accent); transform: translateY(-3px); color: #fff; }
+        .newsletter-input {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff; border-radius: 10px 0 0 10px;
+            padding: 12px 16px; font-size: 0.9rem;
+        }
+        .newsletter-input::placeholder { color: rgba(255,255,255,0.4); }
+        .newsletter-input:focus { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.3); box-shadow: none; color: #fff; }
+        .btn-newsletter {
+            background: var(--accent); color: #fff; border: none;
+            padding: 0 20px; border-radius: 0 10px 10px 0;
+            font-weight: 600; transition: var(--transition); font-size: 0.88rem;
+        }
+        .btn-newsletter:hover { background: #00c9b0; }
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem; color: rgba(255,255,255,0.45);
+        }
+        .copyright a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+        /* ============ BACK TO TOP ============ */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 44px; height: 44px; border-radius: 50%;
+            background: var(--primary); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; z-index: 1030;
+            opacity: 0; visibility: hidden; transition: var(--transition);
+            box-shadow: var(--shadow-md); text-decoration: none;
+        }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: var(--primary-dark); transform: translateY(-4px); color: #fff; }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 767px) {
+            .page-hero h1 { font-size: 2rem; }
+            .doctor-card { margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== TOP BAR ==================== -->
+<div class="topbar text-white py-2 d-none d-lg-block">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex gap-4">
+                    <span><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i>No. 5, 2nd Close, Airport Residential Area, Accra</span>
+                    <span><i class="fas fa-phone-alt me-2" style="color: var(--accent);"></i>+233 244 355 678</span>
+                    <span><i class="fas fa-envelope me-2" style="color: var(--accent);"></i>info@nextcaregh.com</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-end">
+                <a href="https://wa.me/+233244355678" class="social-icon me-1" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon me-1"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/nextcare-logo.png" alt="NextCare Medical Center">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fas fa-bars" style="color: var(--primary); font-size: 1.3rem;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="service/serv1.html" class="dropdown-item">General/Family Medicine</a></li>
+                        <li><a href="serv2.html" class="dropdown-item">Obstetrics/Gynaecology</a></li>
+                        <li><a href="serv3.html" class="dropdown-item">Paediatrics</a></li>
+                        <li><a href="serv6.html" class="dropdown-item">Internal Medicine</a></li>
+                        <li><a href="serv7.html" class="dropdown-item">Surgery</a></li>
+                        <li><a href="serv9.html" class="dropdown-item">Laboratory Services</a></li>
+                        <li><a href="serv8.html" class="dropdown-item">Pharmacy</a></li>
+                        <li><a href="serv5.html" class="dropdown-item">Ultrasound & Imaging</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="blogpost.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item ms-lg-3">
+                    <a href="appointment.html" class="btn-appointment active">Book Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== PAGE HERO ==================== -->
+<section class="page-hero">
+    <div class="container">
+        <div data-aos="fade-up" data-aos-duration="800">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Book Appointment</li>
+                </ol>
+            </nav>
+            <h1>Schedule Your <span class="highlight">Visit</span></h1>
+            <p class="mt-3 text-muted" style="max-width: 600px; position: relative; z-index: 2;">Choose from our experienced specialists and book an appointment at your convenience.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DOCTORS ROW ==================== -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="section-badge">Our Specialists</span>
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--gray-900);">Meet Our Doctors</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">Click "View Credentials" to learn more about each specialist's background and expertise.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Doctor 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-user-md"></i> <!-- Replace with <img src="img/doctor1.jpg" alt="Dr. Kwame Asante"> -->
+                    </div>
+                    <div class="doctor-info">
+                        <h5>Dr. Kwame Asante</h5>
+                        <div class="specialty">Consultant Cardiologist</div>
+                        <button class="btn-view-credentials" data-bs-toggle="modal" data-bs-target="#doctorModal1">
+                            <i class="fas fa-id-card me-1"></i> View Credentials
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-user-md"></i> <!-- Replace with <img src="img/doctor2.jpg" alt="Dr. Abena Mensah"> -->
+                    </div>
+                    <div class="doctor-info">
+                        <h5>Dr. Abena Mensah</h5>
+                        <div class="specialty">Obstetrician & Gynaecologist</div>
+                        <button class="btn-view-credentials" data-bs-toggle="modal" data-bs-target="#doctorModal2">
+                            <i class="fas fa-id-card me-1"></i> View Credentials
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="doctor-card">
+                    <div class="doctor-img">
+                        <i class="fas fa-user-md"></i> <!-- Replace with <img src="img/doctor3.jpg" alt="Dr. Yaw Boakye"> -->
+                    </div>
+                    <div class="doctor-info">
+                        <h5>Dr. Yaw Boakye</h5>
+                        <div class="specialty">Paediatrician</div>
+                        <button class="btn-view-credentials" data-bs-toggle="modal" data-bs-target="#doctorModal3">
+                            <i class="fas fa-id-card me-1"></i> View Credentials
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button to About page -->
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
+            <a href="about.html" class="btn-see-all">
+                See All Doctors <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== APPOINTMENT FORM ROW ==================== -->
+<section class="py-5" style="background: var(--gray-50);">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-badge">Book Now</span>
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--gray-900);">Request an Appointment</h2>
+            <p class="text-muted mx-auto" style="max-width: 600px;">Fill in the details below and we'll confirm your appointment within 2 hours.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="appointment-form-card">
+                    <form action="mailto:info@nextcaregh.com" method="post" enctype="text/plain">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Full Name *</label>
+                                <input type="text" class="form-control-custom" placeholder="Enter your full name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Email Address *</label>
+                                <input type="email" class="form-control-custom" placeholder="Enter email address" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Phone Number *</label>
+                                <input type="tel" class="form-control-custom" placeholder="e.g., +233 50 123 4567" name="phone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Select Treatment *</label>
+                                <select class="form-control-custom" name="treatment" required>
+                                    <option value="" selected disabled>Choose a service</option>
+                                    <option value="General Medicine">General / Family Medicine</option>
+                                    <option value="Obstetrics & Gynaecology">Obstetrics & Gynaecology</option>
+                                    <option value="Paediatrics">Paediatrics</option>
+                                    <option value="Internal Medicine">Internal Medicine</option>
+                                    <option value="Surgery">Surgery</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Preferred Date *</label>
+                                <input type="date" class="form-control-custom" name="appointment_date" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-semibold mb-2">Preferred Time</label>
+                                <input type="time" class="form-control-custom" name="appointment_time">
+                            </div>
+                            <div class="col-12">
+                                <label class="fw-semibold mb-2">Additional Message</label>
+                                <textarea class="form-control-custom" placeholder="Any specific concerns or requests..." name="message"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn-submit-appointment">
+                                    <i class="fas fa-calendar-check"></i> Book Appointment
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DOCTOR MODALS ==================== -->
+<!-- Modal Doctor 1 -->
+<div class="modal fade" id="doctorModal1" tabindex="-1" aria-labelledby="doctorModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="doctorModal1Label">Dr. Kwame Asante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="modal-doctor-img">
+                    <i class="fas fa-user-md"></i> <!-- Replace with image -->
+                </div>
+                <h5 class="fw-bold">Consultant Cardiologist</h5>
+                <ul class="modal-credentials-list text-start mt-3">
+                    <li><i class="fas fa-graduation-cap"></i> <strong>MBChB</strong> – University of Ghana Medical School</li>
+                    <li><i class="fas fa-certificate"></i> <strong>Fellowship</strong> – West African College of Physicians (Cardiology)</li>
+                    <li><i class="fas fa-briefcase"></i> <strong>Experience</strong> – 18+ years in interventional cardiology</li>
+                    <li><i class="fas fa-hospital"></i> <strong>Previous Roles</strong> – Korle Bu Teaching Hospital, Cleveland Clinic (Observer)</li>
+                    <li><i class="fas fa-star"></i> <strong>Special Interests</strong> – Hypertension, heart failure, preventive cardiology</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doctor 2 -->
+<div class="modal fade" id="doctorModal2" tabindex="-1" aria-labelledby="doctorModal2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="doctorModal2Label">Dr. Abena Mensah</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="modal-doctor-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h5 class="fw-bold">Obstetrician & Gynaecologist</h5>
+                <ul class="modal-credentials-list text-start mt-3">
+                    <li><i class="fas fa-graduation-cap"></i> <strong>MBChB</strong> – Kwame Nkrumah University of Science and Technology</li>
+                    <li><i class="fas fa-certificate"></i> <strong>Membership</strong> – Royal College of Obstetricians and Gynaecologists (MRCOG)</li>
+                    <li><i class="fas fa-briefcase"></i> <strong>Experience</strong> – 15 years in obstetrics & minimally invasive gynae surgery</li>
+                    <li><i class="fas fa-hospital"></i> <strong>Previous Roles</strong> – Ridge Hospital, Lister Hospital (UK)</li>
+                    <li><i class="fas fa-star"></i> <strong>Special Interests</strong> – High-risk pregnancy, fertility preservation, laparoscopic surgery</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Doctor 3 -->
+<div class="modal fade" id="doctorModal3" tabindex="-1" aria-labelledby="doctorModal3Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="doctorModal3Label">Dr. Yaw Boakye</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="modal-doctor-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h5 class="fw-bold">Paediatrician</h5>
+                <ul class="modal-credentials-list text-start mt-3">
+                    <li><i class="fas fa-graduation-cap"></i> <strong>MBChB</strong> – University of Cape Coast</li>
+                    <li><i class="fas fa-certificate"></i> <strong>Fellowship</strong> – West African College of Physicians (Paediatrics)</li>
+                    <li><i class="fas fa-briefcase"></i> <strong>Experience</strong> – 12 years in paediatric care & neonatology</li>
+                    <li><i class="fas fa-hospital"></i> <strong>Previous Roles</strong> – Komfo Anokye Teaching Hospital, Boston Children's Hospital (Elective)</li>
+                    <li><i class="fas fa-star"></i> <strong>Special Interests</strong> – Childhood asthma, nutrition, neonatal intensive care</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== STICKY CTA BAR (Mobile) ==================== -->
+<div class="sticky-cta-bar">
+    <div class="container">
+        <div class="d-flex justify-content-around align-items-center">
+            <a href="tel:+233244355678" class="btn-sticky btn-sticky-call">
+                <i class="fas fa-phone-alt"></i> Call
+            </a>
+            <a href="https://wa.me/+233244355678?text=Hello%20NextCare%2C%20I%20would%20like%20to%20book%20an%20appointment." class="btn-sticky btn-sticky-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:info@nextcaregh.com?subject=Appointment%20Request" class="btn-sticky btn-sticky-email">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer pt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="footer-brand">
+                    <img src="img/nextcare-logo-white.png" alt="NextCare Medical Center" style="height: 50px; margin-bottom: 1rem;">
+                    <p class="text-white-50">Delivering accessible, quality healthcare with integrity and innovation – right where you need it.</p>
+                    <form action="#" method="POST" class="w-100 mt-3">
+                        <div class="input-group">
+                            <input type="email" class="newsletter-input form-control" placeholder="Subscribe to newsletter" name="email" required>
+                            <button class="btn-newsletter" type="submit">Join</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <h5>Get In Touch</h5>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2" style="color: var(--accent);"></i> No. 5, 2nd Close, Airport Residential Area, Accra</p>
+                        <p class="mb-2"><i class="fas fa-envelope me-2" style="color: var(--accent);"></i> info@nextcaregh.com</p>
+                        <p class="mb-3"><i class="fas fa-phone me-2" style="color: var(--accent);"></i> +233 (0) 244 355 678</p>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <h5>Quick Links</h5>
+                        <a href="index.html" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
+                        <a href="about.html" class="footer-link"><i class="fas fa-chevron-right"></i> About Us</a>
+                        <a href="service.html" class="footer-link"><i class="fas fa-chevron-right"></i> Our Services</a>
+                        <a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Meet The Team</a>
+                        <a href="blogpost.html" class="footer-link"><i class="fas fa-chevron-right"></i> Latest Blog</a>
+                        <a href="contact.html" class="footer-link"><i class="fas fa-chevron-right"></i> Contact Us</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <h5>Main Services</h5>
+                        <a href="serv1.html" class="footer-link"><i class="fas fa-chevron-right"></i> General Medicine</a>
+                        <a href="serv2.html" class="footer-link"><i class="fas fa-chevron-right"></i> Obstetrics & Gynaecology</a>
+                        <a href="serv3.html" class="footer-link"><i class="fas fa-chevron-right"></i> Paediatrics</a>
+                        <a href="serv6.html" class="footer-link"><i class="fas fa-chevron-right"></i> Internal Medicine</a>
+                        <a href="serv7.html" class="footer-link"><i class="fas fa-chevron-right"></i> Surgery</a>
+                        <a href="serv9.html" class="footer-link"><i class="fas fa-chevron-right"></i> Laboratory & Imaging</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright mt-5 py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> <a href="#">NextCare Medical Center</a>. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+
+        const backToTop = document.getElementById('backToTop');
+        if (window.scrollY > 300) backToTop.classList.add('show');
+        else backToTop.classList.remove('show');
+    });
+
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
