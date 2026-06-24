@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laboratory Services | Nextcare Ghana</title>
     <meta name="description" content="Nextcare Ghana provides accessible, high-quality healthcare services in Accra and beyond. Expert doctors, modern facilities, and compassionate patient care.">
-    <meta name="keywords" content="hospital, Accra, healthcare, Nextcare, Ghana, medical, clinic, specialist">
+    <meta name="keywords" content="hospital, Kumasi, healthcare, Nextcare, Ghana, medical, clinic, specialist">
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Open Graph SEO -->
@@ -26,7 +26,7 @@
     <!-- Icon Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <!-- Bootstrap 5.3 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -36,6 +36,127 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="service.css" rel="stylesheet">
+    <style>
+         /* Vision Cards */
+.vision-card {
+    position: relative;
+    padding: 20px 10px;
+    border-radius: 20px;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    height: 100%;
+}
+
+/* Vision Card */
+.vision-card-1 {
+    background: linear-gradient(135deg, #0066ff, #00c6ff);
+}
+
+/* Promise Card */
+.vision-card-2 {
+    background: linear-gradient(135deg, #77c9e2, #025857);
+}
+
+/* Hover Effects */
+.vision-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+.vision-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.vision-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 2px;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.95);
+}
+
+.vision-list li::before {
+    content: "\f058"; /* Font Awesome check-circle */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.vision-card:hover .vision-list li::before {
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
+/* Animated Overlay */
+.vision-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 300%;
+    background: rgba(255,255,255,0.08);
+    transform: rotate(25deg);
+    transition: all 0.8s ease;
+}
+
+.vision-card:hover::before {
+    top: -20%;
+}
+
+/* Icon Styling */
+.vision-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    backdrop-filter: blur(10px);
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.vision-icon i {
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Text */
+.vision-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Floating Animation */
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Glow Effect */
+.vision-card:hover .vision-icon {
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+}
+    </style>
 </head>
 <body>
 
@@ -52,11 +173,12 @@
             </div>
             <div class="col-lg-4 text-end">
                 <a href="https://wa.me/+233599598366" class="social-icon me-1" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-icon me-1"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon me-1"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon me-1"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-icon me-1"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/p/NextCare-Medical-Centre-61578042579907/" class="social-icon me-1"><i class="fab fa-facebook-f"></i></a>
+               <!--  <a href="#" class="social-icon me-1"><i class="fab fa-linkedin-in"></i></a> -->
+                <a href="https://www.instagram.com/nextc.are/" class="social-icon me-1"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -66,7 +188,7 @@
 <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
     <div class="container">
         <a class="navbar-brand" href="../index.html">
-            <img src="../img/nextcare-logo.jpg" alt="Nextcare Ghana" style="height: 60px; border-radius: var(--radius-2xl);">
+            <img src="../img/logonext.png" alt="Nextcare Ghana" style="height: 60px; border-radius: var(--radius-2xl);">
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fas fa-bars" style="color: var(--primary); font-size: 1.3rem;"></span>
@@ -85,6 +207,7 @@
                         <li><a href="serv7.html" class="dropdown-item">Surgery</a></li>
                         <li><a href="serv9.html" class="dropdown-item">Laboratory Services</a></li>
                         <li><a href="serv8.html" class="dropdown-item">Pharmacy</a></li>
+                        <li><a href="serv11.html" class="dropdown-item">Eye Clinic</a></li>
                         <li><a href="serv5.html" class="dropdown-item">Ultrasound & Imaging</a></li>
                         <li><a href="serv4.html" class="dropdown-item">IV Rejuvenation Therapy</a></li>
                     </ul>
@@ -124,15 +247,15 @@
             <!-- Main Content -->
             <div class="col-lg-8">
                 <div class="blog-content" data-aos="fade-up">
-                    <img src="../img/labb.jpeg" alt="Laboratory Services" class="w-100 mb-4" loading="lazy">
-                    <span class="section-badge">Primary Care</span>
+                    <img src="../img/lab1.jpeg" alt="Laboratory Services" class="w-100 mb-4" loading="lazy">
+                    
                     <h1>Laboratory Services</h1>
                     <p>
                         We’re proud to provide accessible, affordable laboratory services for patients of all ages. Whether you need routine blood tests, prenatal labs, wellness screenings, or physician‑ordered diagnostics, our team is here to make the process simple and stress‑free.
 
                     </p>
                     <p>
-                        We take time to explain each step, prioritize your comfort, and deliver results quickly so you can stay informed and supported throughout your care journey   
+                        We take time to explain each step, prioritize your comfort, and deliver results quickly so you can stay informed and supported throughout your care journey.   
 
                     </p>
                     <p>
@@ -140,6 +263,48 @@
                         meets medical excellence.
                     </p>
                 </div>
+                <!-- list of Services -->
+                <!-- ==================== VISION SECTION ==================== -->
+                <section style="background: var(--gray-50);" class="section-padding">
+                    <div class="container">
+                        <div class="row g-4">
+                
+                            <!-- Vision Card -->
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800">
+                                <div class="vision-card vision-card-1">
+                                    <div class="vision-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <h3>Premuim Services Parkage</h3>
+                                    <ul class="vision-list">
+                                        <li>Provide high-quality medical care.</li>
+                                        <li>Create a warm and welcoming environment.</li>
+                                        <li>Treat every patient with dignity and respect.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                
+                            <!-- Promise Card -->
+                            <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                                <div class="vision-card vision-card-2">
+                                    <div class="vision-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <h3>Regular Services Parkage</h3>
+                                    <ul class="vision-list">
+                                        <li>Provide high-quality medical care.</li>
+                                        <li>Create a warm and welcoming environment.</li>
+                                        <li>Treat every patient with dignity and respect.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- End of service -->
 
                 <!-- Comment Form -->
                 <div class="comment-form mt-5" data-aos="fade-up" data-aos-delay="200">
@@ -173,7 +338,7 @@
             <div class="col-lg-4">
                 <!-- Other Services -->
                 <div class="sidebar-card" data-aos="fade-left" data-aos-delay="100">
-                    <h4>Other Services</h4>
+                    <h4>List of Services</h4>
                     <a href="serv2.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Obstetrics/Gynaecology</a>
                     <a href="serv10.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Fertility Clinic</a>
                     <a href="serv3.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Paediatrics</a>
@@ -181,13 +346,15 @@
                     <a href="serv6.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Internal Medicine</a>
                     <a href="serv4.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> IV Rejuvenation Therapy</a>
                     <a href="serv1.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Dental Clinic</a>
+                    <a href="serv11.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Eye Clinic</a>
                     <a href="serv8.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Pharmacy</a>
+                    <a href="serv12.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Emergency Services</a>
                     <a href="serv5.html" class="sidebar-link"><i class="fas fa-chevron-right"></i> Ultrasound Scan Services</a>
                 </div>
 
                 <!-- Sidebar Images -->
                 <div class="sidebar-image" data-aos="fade-left" data-aos-delay="200">
-                    <img src="../img/internal.jpg" alt="Family Medicine Consultation" loading="lazy">
+                    <img src="../img/lab2.jpeg" alt="Family Medicine Consultation" loading="lazy">
                 </div>
                 <div class="sidebar-image" data-aos="fade-left" data-aos-delay="300">
                     <img src="../img/Ultrasound.jpg" alt="Medical Care" loading="lazy">
@@ -204,10 +371,6 @@
         </div>
     </div>
     <!-- Blog Content End -->
-
-    <!-- FAQ Section Start -->
-    
-    <!-- FAQ Section End -->
 
 <!-- Footer -->
 <footer class="footer pt-5">
