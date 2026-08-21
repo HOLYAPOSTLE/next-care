@@ -25,6 +25,7 @@
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="assets/css/nextcare-core.css" rel="stylesheet">
     <link href="About.css" rel="stylesheet">
 </head>
 <body>
@@ -325,7 +326,7 @@
     </div>
     <div class="copyright mt-5 py-3">
         <div class="container text-center">
-            <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Nextcare Ghana</a>. All Rights Reserved.</p>
+            <p class="mb-0">&copy; <span class="js-current-year"></span> <a href="#">Nextcare Ghana</a>. All Rights Reserved.</p>
         </div>
     </div>
 </footer>
@@ -340,142 +341,30 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
+<script src="assets/js/nextcare.js"></script>
+<script src="assets/js/nextcare-email.js"></script>
 <script>
-  (function() {
-    // ⚠️ REPLACE WITH YOUR EMAILJS CREDENTIALS ⚠️
-    emailjs.init("m9SgH8GWzxXurl-Ak"); // Get from EmailJS dashboard
-  })();
-
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    // Get form elements
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const service = document.getElementById("service").value;
-    const message = document.getElementById("message").value.trim();
-    const responseDiv = document.getElementById("responseMessage");
-
-    // Get button elements for loading state
-    const submitBtn = document.getElementById("submitBtn");
-    const btnText = document.getElementById("btnText");
-    const btnSpinner = document.getElementById("btnSpinner");
-
-    // Clear previous response
-    responseDiv.innerHTML = "";
-    responseDiv.className = "";
-
-    // Show loading state
-    btnText.textContent = "Sending...";
-    btnSpinner.classList.remove("d-none");
-    submitBtn.disabled = true;
-
-    // Prepare template parameters for EmailJS
-    const templateParams = {
-      from_name: name,
-      from_email: email,
-      phone_number: phone || "Not provided",
-      service_type: service,
-      message: message,
-      to_email: "info@nextcaregh.com"
-    };
-
-    // ⚠️ REPLACE WITH YOUR EMAILJS SERVICE & TEMPLATE IDs ⚠️
-    emailjs.send("service_ewcks7w", "template_6w2apcx", templateParams)
-      .then(function(response) {
-        // Success
-        responseDiv.innerHTML = `
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <i class="fas fa-check-circle me-2"></i>
-            <strong>Message sent successfully!</strong> Our team will respond within 2 hours.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        `;
-        document.getElementById("contactForm").reset();
-      })
-      .catch(function(error) {
-        // Error
-        console.error("EmailJS Error:", error);
-        responseDiv.innerHTML = `
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="fas fa-exclamation-circle me-2"></i>
-            <strong>Failed to send message.</strong> Please try again or email us directly at 
-            <a href="mailto:info@nextcaregh.com" class="alert-link">info@nextcaregh.com</a>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        `;
-      })
-      .finally(function() {
-        // Reset button state
-        btnText.textContent = "Send";
-        btnSpinner.classList.add("d-none");
-        submitBtn.disabled = false;
-      });
-  });
-
-    // Initialize AOS
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
-
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    NextCare.email.handleForm({
+        formId: 'contactForm',
+        templateId: 'template_6w2apcx',
+        responseId: 'responseMessage',
+        button: { id: 'submitBtn', textId: 'btnText', spinnerId: 'btnSpinner', defaultText: 'Send' },
+        messages: {
+            success: '<strong>Message sent successfully!</strong> Our team will respond within 2 hours.',
+            error: '<strong>Failed to send message.</strong> Please try again or email us directly at ' +
+                '<a href="mailto:' + NextCare.email.config.contactEmail + '" class="alert-link">' +
+                NextCare.email.config.contactEmail + '</a>'
+        },
+        params: function () {
+            return {
+                from_name: document.getElementById('name').value.trim(),
+                from_email: document.getElementById('email').value.trim(),
+                phone_number: document.getElementById('phone').value.trim() || 'Not provided',
+                service_type: document.getElementById('service').value,
+                message: document.getElementById('message').value.trim(),
+                to_email: NextCare.email.config.contactEmail
+            };
         }
-        
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
-    });
-
-    // Owl Carousels
-    $(document).ready(function(){
-        $('.testimonial-carousel').owlCarousel({
-            loop: true,
-            margin: 25,
-            nav: false,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 4000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: { items: 1 },
-                768: { items: 2 },
-                1000: { items: 2 }
-            }
-        });
-
-        $('.partner-carousel').owlCarousel({
-            loop: true,
-            margin: 15,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsive: {
-                0: { items: 2 },
-                600: { items: 4 },
-                1000: { items: 6 }
-            }
-        });
-    });
-
-    // Smooth scroll for back to top
-    document.getElementById('backToTop').addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 </script>
 
