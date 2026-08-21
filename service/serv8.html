@@ -282,11 +282,15 @@
 
 <script>
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.error('AOS failed to load; scroll animations are disabled.');
+    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -307,7 +311,12 @@
     });
 
     // Owl Carousels
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function(){
+        if (!window.jQuery || !window.jQuery.fn.owlCarousel) {
+            console.error('jQuery/OwlCarousel failed to load; carousels are disabled.');
+            return;
+        }
+
         $('.testimonial-carousel').owlCarousel({
             loop: true,
             margin: 25,

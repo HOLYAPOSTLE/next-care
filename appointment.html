@@ -907,6 +907,10 @@ Santasi, Ashanti</p>
 
     // Initialize EmailJS with your Public Key
 (function() {
+  if (!window.emailjs) {
+    console.error("EmailJS library failed to load; appointment requests cannot be sent.");
+    return;
+  }
   emailjs.init("m9SgH8GWzxXurl-Ak"); // Get from EmailJS dashboard
 })();
 
@@ -921,8 +925,24 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   const time = document.getElementById("time").value;
   const message = document.getElementById("message").value;
   const responseDiv = document.getElementById("responseMessage");
+  const submitBtn = this.querySelector('button[type="submit"]');
+  const originalBtnHtml = submitBtn.innerHTML;
+
+  const failWith = function(error) {
+    console.error("Appointment request failed:", error);
+    responseDiv.innerHTML = "❌ We could not send your request. Please try again, or call +233 599598366 / email info@nextcaregh.com.";
+    responseDiv.className = "error";
+  };
+
+  if (!window.emailjs) {
+    failWith(new Error("EmailJS library unavailable"));
+    return;
+  }
 
   responseDiv.innerHTML = "⏳ Sending...";
+  responseDiv.className = "";
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
   const templateParams = {
     from_name: name,
@@ -938,18 +958,23 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
       responseDiv.innerHTML = "✅ Message sent successfully!";
       responseDiv.className = "success";
       document.getElementById("contactForm").reset();
-    }, function(error) {
-      responseDiv.innerHTML = "❌ Failed to send. Please try again.";
-      responseDiv.className = "error";
-      console.log(error);
+    })
+    .catch(failWith)
+    .finally(function() {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHtml;
     });
 });
 
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.error('AOS failed to load; scroll animations are disabled.');
+    }
 
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
