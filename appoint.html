@@ -1047,6 +1047,7 @@
                             <label class="form-label">Reason for Visit</label>
                             <textarea class="form-control" name="message" rows="3" placeholder="Briefly describe your condition or reason for appointment"></textarea>
                         </div>
+                        <div class="col-12" id="bookingStatus" role="alert" aria-live="polite"></div>
                         <div class="col-12">
                             <button type="submit" class="btn-submit">
                                 <i class="fas fa-check-circle me-2"></i>Confirm Booking
@@ -1141,11 +1142,15 @@ Santasi, Ashanti</p>
 
 <script>
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.error('AOS failed to load; scroll animations are disabled.');
+    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -1214,22 +1219,53 @@ Santasi, Ashanti</p>
     // Form submission
     document.getElementById('bookingForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Show success toast
-        const toast = new bootstrap.Toast(document.getElementById('successToast'));
-        toast.show();
-        
-        // Close modal
-        const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-        modal.hide();
-        
-        // Reset form
-        this.reset();
-        
-        // Actually submit after short delay for UX
-        setTimeout(() => {
-            this.submit();
-        }, 1500);
+
+        const form = this;
+        const statusDiv = document.getElementById('bookingStatus');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnHtml = submitBtn.innerHTML;
+
+        statusDiv.innerHTML = '';
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Booking...';
+
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Booking endpoint responded with ' + response.status + ' ' + response.statusText);
+                }
+
+                const toastEl = document.getElementById('successToast');
+                if (window.bootstrap && toastEl) {
+                    new bootstrap.Toast(toastEl).show();
+                }
+
+                const modalEl = document.getElementById('bookingModal');
+                const modal = window.bootstrap && modalEl ? bootstrap.Modal.getInstance(modalEl) : null;
+                if (modal) {
+                    modal.hide();
+                }
+
+                form.reset();
+            })
+            .catch(function(error) {
+                console.error('Appointment booking failed:', error);
+                statusDiv.innerHTML =
+                    '<div class="alert alert-danger mb-0">' +
+                    '<i class="fas fa-exclamation-circle me-2"></i>' +
+                    '<strong>We could not submit your booking.</strong> Please try again, or call ' +
+                    '<a href="tel:+233599598366" class="alert-link">+233 599598366</a> / email ' +
+                    '<a href="mailto:info@nextcaregh.com" class="alert-link">info@nextcaregh.com</a>.' +
+                    '</div>';
+            })
+            .finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHtml;
+            });
     });
 </script>
 </body>

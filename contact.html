@@ -342,6 +342,10 @@
 
 <script>
   (function() {
+    if (!window.emailjs) {
+      console.error("EmailJS library failed to load; contact messages cannot be sent.");
+      return;
+    }
     // ⚠️ REPLACE WITH YOUR EMAILJS CREDENTIALS ⚠️
     emailjs.init("m9SgH8GWzxXurl-Ak"); // Get from EmailJS dashboard
   })();
@@ -365,6 +369,23 @@
     // Clear previous response
     responseDiv.innerHTML = "";
     responseDiv.className = "";
+
+    const showSendFailure = function(error) {
+      console.error("Contact form submission failed:", error);
+      responseDiv.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <i class="fas fa-exclamation-circle me-2"></i>
+          <strong>Failed to send message.</strong> Please try again or email us directly at 
+          <a href="mailto:info@nextcaregh.com" class="alert-link">info@nextcaregh.com</a>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+    };
+
+    if (!window.emailjs) {
+      showSendFailure(new Error("EmailJS library unavailable"));
+      return;
+    }
 
     // Show loading state
     btnText.textContent = "Sending...";
@@ -394,18 +415,7 @@
         `;
         document.getElementById("contactForm").reset();
       })
-      .catch(function(error) {
-        // Error
-        console.error("EmailJS Error:", error);
-        responseDiv.innerHTML = `
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <i class="fas fa-exclamation-circle me-2"></i>
-            <strong>Failed to send message.</strong> Please try again or email us directly at 
-            <a href="mailto:info@nextcaregh.com" class="alert-link">info@nextcaregh.com</a>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        `;
-      })
+      .catch(showSendFailure)
       .finally(function() {
         // Reset button state
         btnText.textContent = "Send";
@@ -415,11 +425,15 @@
   });
 
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.error('AOS failed to load; scroll animations are disabled.');
+    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -440,7 +454,12 @@
     });
 
     // Owl Carousels
-    $(document).ready(function(){
+    document.addEventListener('DOMContentLoaded', function(){
+        if (!window.jQuery || !window.jQuery.fn.owlCarousel) {
+            console.error('jQuery/OwlCarousel failed to load; carousels are disabled.');
+            return;
+        }
+
         $('.testimonial-carousel').owlCarousel({
             loop: true,
             margin: 25,
